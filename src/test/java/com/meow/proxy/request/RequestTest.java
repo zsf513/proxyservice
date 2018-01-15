@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
  *         date:2017/12/15
  *         email:jwnie@foxmail.com
  */
-public class Request {
+public class RequestTest {
 
     @Test
     public void testMatch(){
