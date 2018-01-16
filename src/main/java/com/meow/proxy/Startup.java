@@ -10,11 +10,11 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @MapperScan("com.meow.proxy.dao")
 @EnableScheduling
 @SpringBootApplication(scanBasePackages = "com.meow")
-public class Application {
-	private final static Logger LOG = LoggerFactory.getLogger(Application.class);
+public class Startup {
+	private final static Logger LOG = LoggerFactory.getLogger(Startup.class);
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(Startup.class, args);
 		LOG.info("启动成功");
 	}
 }
