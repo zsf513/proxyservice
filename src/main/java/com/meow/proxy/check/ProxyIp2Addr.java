@@ -1,13 +1,14 @@
 package com.meow.proxy.check;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.meow.proxy.entity.IPAddr;
-import com.meow.proxy.request.HttpClientUtil;
-import com.meow.proxy.request.Response;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.meow.proxy.entity.IPAddr;
+import com.meow.proxy.util.HttpClientUtil;
+import com.meow.proxy.util.Response;
 
 /**
  * @author Alex

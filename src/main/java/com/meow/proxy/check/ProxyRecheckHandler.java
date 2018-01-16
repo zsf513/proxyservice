@@ -28,10 +28,14 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 @Component
 public class ProxyRecheckHandler {
     private final static Logger LOG = LoggerFactory.getLogger(ProxyRecheckHandler.class);
+    
     @Autowired
     ProxyService proxyService;
+    
     ScheduledExecutorService scheduledExecutorService = null;
+    
     BlockingDeque<Proxy> proxyBlockingDeque = null;
+    
     private volatile boolean queueIsEmpty = Boolean.TRUE;
 
     public void handleMessage(ProxyRecheckSender proxyRecheckSender, List<Proxy> proxies) {

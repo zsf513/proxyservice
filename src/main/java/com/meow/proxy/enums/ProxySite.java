@@ -18,22 +18,15 @@ public enum ProxySite {
     ;
 
     private String proxySiteDomain;
+    
     private String proxySiteName;
 
     public String getProxySiteDomain() {
         return proxySiteDomain;
     }
 
-    public void setProxySiteDomain(String proxySiteDomain) {
-        this.proxySiteDomain = proxySiteDomain;
-    }
-
     public String getProxySiteName() {
         return proxySiteName;
-    }
-
-    public void setProxySiteName(String proxySiteName) {
-        this.proxySiteName = proxySiteName;
     }
 
     ProxySite(String proxySiteDomain, String proxySiteName) {

@@ -1,10 +1,9 @@
 package com.meow.proxy.service;
 
-import com.meow.proxy.entity.Proxy;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
 import java.util.Map;
+
+import com.meow.proxy.entity.Proxy;
 
 /**
  * @author Alex
@@ -27,4 +26,6 @@ public interface ProxyService {
     List<Map<String,String>> proxyStatisticBySite();
 
     int queryValidProxyCount(String protocolType, String isDemostic,String anonymousType);
+    
+    Proxy getByIpAndPort(String ip,int port);
 }

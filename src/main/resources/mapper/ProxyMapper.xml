@@ -5,7 +5,7 @@
     <!-- insert -->
     <!--保存代理，使用ip和port作为主键避免重复插入-->
     <insert id="saveProxies" parameterType="java.util.List">
-        INSERT IGNORE INTO `Cfg_Proxy`
+        INSERT IGNORE INTO `cfg_proxy`
         (`ip`,`PORT`,`anonymousType`,`protocolType`,`country`,`AREA`,`valid`,`invalidTime`,`lastSurviveTime`,`checkTime`,`checkStatus`,`score`,`sourceSite`,`validTime`,`crawlTime`,`responseTime`)
         VALUES
         <foreach collection="list" item="proxy" index="index" separator=",">
@@ -17,12 +17,12 @@
     <!-- query -->
     <!--查询所有有效的代理 -->
     <select id="queryValidProxies" resultType="com.meow.proxy.entity.Proxy">
-            SELECT * FROM Cfg_Proxy WHERE valid = 1;
-        </select>
+            SELECT * FROM cfg_proxy WHERE valid = 1;
+    </select>
 
     <!--查询响应时间最短的、最新的前一百条代理，参数可选-->
     <select id="queryProxy" resultType="com.meow.proxy.entity.Proxy">
-        SELECT * FROM Cfg_Proxy WHERE valid = 1
+        SELECT * FROM cfg_proxy WHERE valid = 1
         <if test="anonymousType != null and anonymousType != '' ">
             AND anonymousType = #{anonymousType, jdbcType=VARCHAR}
         </if>
@@ -41,7 +41,7 @@
     </select>
     <!-- 统计有效代理数 -->
     <select id="queryValidProxyCount" resultType="int">
-        SELECT count(*) FROM Cfg_Proxy WHERE valid = 1
+        SELECT count(*) FROM cfg_proxy WHERE valid = 1
         <if test="anonymousType != null and anonymousType != '' ">
             AND anonymousType = #{anonymousType, jdbcType=VARCHAR}
         </if>
@@ -61,13 +61,13 @@
 
     <!-- 查询代理数量，按站点统计 -->
     <select id="proxyStatisticBySite" resultType="java.util.HashMap">
-      SELECT sourceSite, COUNT(*) AS 'validProxy' FROM Cfg_Proxy WHERE valid = 1 GROUP BY sourceSite;
+      SELECT sourceSite, COUNT(*) AS 'validProxy' FROM cfg_proxy WHERE valid = 1 GROUP BY sourceSite;
     </select>
 
     <!-- update -->
     <update id="updateProxies" parameterType="java.util.List">
         <foreach collection="list" item="item" index="index" open="" close="" separator=";">
-            UPDATE Cfg_Proxy
+            UPDATE cfg_proxy
             <set>
                 valid = #{item.valid},
                 invalidTime = #{item.invalidTime},
@@ -82,8 +82,8 @@
         </foreach>
     </update>
 
-
-    <!-- delete -->
-
-
+	<select id="queryAll" resultType="com.meow.proxy.entity.Proxy">
+		SELECT * FROM cfg_proxy ORDER BY crawlTime ASC;
+    </select>
+    
 </mapper>

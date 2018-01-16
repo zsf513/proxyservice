@@ -1,4 +1,4 @@
-package com.meow.proxy.request;
+package com.meow.proxy.util;
 
 import org.apache.http.HttpEntityEnclosingRequest;
 import org.apache.http.HttpRequest;
@@ -14,13 +14,6 @@ import java.io.IOException;
 import java.io.InterruptedIOException;
 import java.net.UnknownHostException;
 
-/**
- * 请求重试处理
- *
- * @author Alex
- *         date:2017/12/14
- *         email:jwnie@foxmail.com
- */
 public class RequestRetryHandler implements HttpRequestRetryHandler {
 
 

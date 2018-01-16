@@ -52,4 +52,9 @@ public class ProxyServiceImpl implements ProxyService {
         return proxyDao.queryValidProxyCount(protocolType, isDemostic, anonymousType);
     }
 
+	@Override
+	public Proxy getByIpAndPort(String ip, int port) {
+		return proxyDao.queryByIpAndPort(ip, port);
+	}
+
 }
